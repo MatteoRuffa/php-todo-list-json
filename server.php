@@ -22,7 +22,17 @@ if ($method !== 'GET') {
                 break;
             }
         }
+    } elseif ($method === 'PUT') {
+        $obj = json_decode(file_get_contents('php://input'), true);
+        $idToUpdate = $obj['id'];
+        foreach ($carbonara as $i => $item) {
+            if ($item['id'] == $idToUpdate) {
+                $carbonara[$i] = $obj;
+                break;
+            }
+        }
     }
+    
     $carbonaraJson = json_encode($carbonara, JSON_PRETTY_PRINT);
     file_put_contents('carbonara.json', $carbonaraJson);
 }

@@ -20,7 +20,23 @@ createApp({
             const item = this.carbonara.find((el)=>el.id === id);
             console.log(item);
             if(item){
-                item.done = !item.done
+                item.done = !item.done;
+        
+                const data = {
+                    id: item.id,
+                    text: item.text,
+                    done: item.done
+                };
+        
+                axios
+                    .put(this.apiUrl, data)
+                    .then((res)=> {
+                        console.log(res.data);
+                        this.carbonara = res.data;
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
             }
         },
         removeById(id){
