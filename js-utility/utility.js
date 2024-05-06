@@ -1,8 +1,8 @@
-import {getRndInteger} from './js-utility/utility.js';
+// import {getRndInteger} from './js-utility/utility.js';
 
-function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
+// function getRndInteger(min, max) {
+//   return Math.floor(Math.random() * (max - min + 1) ) + min;
+// }
 
 /*
 const numberProva = [items1, ..., itemsx];
