@@ -1,11 +1,9 @@
-import { carbonara } from "./data.js";
-
 const {createApp} = Vue;
 
 createApp({
     data(){
         return{
-            carbonara,
+            carbonara: [],
             newAction: '',
         }
     },
@@ -39,10 +37,18 @@ createApp({
             this.carbonara.push(newObj);
             this.newAction = '';
             console.log(this.carbonara);
-        }
+        },
+        getData(){
+            axios
+            .get('carbonara.json')
+            .then((res)=>{
+                this.carbonara = res.data;
+            })
+    },
+    created(){
+        this.getData();
     },
     
-    mounted(){
-        console.log(this.carbonara);
-    }
+    
+        }
 }).mount('#app')
