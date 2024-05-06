@@ -1,3 +1,22 @@
-.pointer{
+body {
+    background: linear-gradient(to top, darkgrey 0%, rgba(0, 0, 0, 0) 100%);
+    height: 100vh;
+    overflow: auto;
+    &::-webkit-scrollbar-thumb {
+            border-radius: 8px;
+            background-color: #363636;
+        }
+    &::-webkit-scrollbar-track {
+        border-radius: 8px;
+        background-color: #e7e7e7;
+        border: 1px solid #cacaca;
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    }
+    &::-webkit-scrollbar {                 
+        width: 12px;
+    }
+}
+
+.pointer, .fa-solid {
     cursor: pointer;
 }
