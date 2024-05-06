@@ -33,7 +33,7 @@
             </ul>
             <div>
                 <label for="newAction">Aggiungi un'azione</label>
-                <input type="text" class="form-control" id="newAction" v-model="newAction" @keyup.enter="addAction">
+                <input type="text" class="form-control" id="newAction" v-model="newAction" name="newAction" @keyup.enter="addAction">
                 <button class="btn btn-danger  my-2" @click="addAction">Aggiungi</button>
 
             </div>
