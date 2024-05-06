@@ -13,6 +13,15 @@ if ($method !== 'GET') {
             'done' => $_POST['done'] === 'true',
         ];
         $carbonara[] = $carbonaraIns;
+    } elseif ($method === 'DELETE') {
+        $obj = json_decode(file_get_contents('php://input'), true);
+        $idToDelete = $obj['id'];
+        foreach ($carbonara as $i => $item) {
+            if ($item['id'] == $idToDelete) {
+                array_splice($carbonara, $i, 1);
+                break;
+            }
+        }
     }
     $carbonaraJson = json_encode($carbonara, JSON_PRETTY_PRINT);
     file_put_contents('carbonara.json', $carbonaraJson);

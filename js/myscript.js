@@ -10,7 +10,9 @@ createApp({
                 text: '',
                 done: ''
             },
-            newAction: ''
+            newAction: '',
+            newId: 0
+            
         }
     },
     methods:{
@@ -22,10 +24,16 @@ createApp({
             }
         },
         removeById(id){
-            const index = this.carbonara.findIndex((el)=>el.id === id);
-            if(index !== -1){
-                this.carbonara.splice(index, 1);
-            }
+            const data = {
+                id: id,
+            };
+            axios
+                .delete(this.apiUrl, { data })
+                .then((res)=> {
+                    console.log(res.data);
+                    this.carbonara = res.data;
+                    this.newId = this.carbonara.length - 1;
+                })
         },
         addAction(){
             let newId = 0;
