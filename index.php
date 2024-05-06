@@ -23,7 +23,7 @@
             <h4>Puoi segnare come fatte le azioni compiute cliccando sulla scritta o eliminarle dalla lista cliccando sull'icona
                 del cestino</h4>
             <ul class="list-group my-4">
-                <li class="d-flex justify-content-between" v-for="(item,index) in carbonara" :key="item.id">
+                <li class="d-flex justify-content-between" v-for="(item, index) in carbonara" :key="item.id">
                     <span :class="{'text-decoration-line-through' : item.done}" class="pointer"
                         @click="toggleLineThrough(item.id)">
                         {{item.text}}

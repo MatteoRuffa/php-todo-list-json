@@ -4,6 +4,7 @@ createApp({
     data(){
         return{
             carbonara: [],
+            apiUrl: 'carbonara.json',
             newAction: '',
         }
     },
@@ -40,7 +41,7 @@ createApp({
         },
         getData(){
             axios
-            .get('carbonara.json')
+            .get(this.apiUrl)
             .then((res)=>{
                 this.carbonara = res.data;
             })
