@@ -44,11 +44,9 @@ createApp({
             .then((res)=>{
                 this.carbonara = res.data;
             })
+        },
     },
     created(){
         this.getData();
     },
-    
-    
-        }
 }).mount('#app')
